@@ -61,25 +61,3 @@ eqObjects(cd, cd2); // => false
 
 
 
-
-
-// const eqObjects = function(object1, object2) {
-//   if (Object.keys(object1).length !== Object.keys(object2).length) {
-//     for (let property of Object.keys(object1)) {
-//       if (object1[property] !== object2[property]) {
-//         return false;
-//       }
-//       return true;
-//     }
-//   }
-//   return false;
-  
-
-// }  
-
-
-
-
-// const ab = { a: "1", b: "2" };
-// const ba = { b: "2", a: "1" };
-// eqObjects(ab, ba); // => true
