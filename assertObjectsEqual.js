@@ -8,19 +8,19 @@ const assertEqual = function(actual, expected) {
 
 
 
-const eqArrays = function(array1, array2) {
-  if (array1.length !== array2.length) {
+const eqArrays = (index1, index2) => {
+ 
+  if (index1.length !== index2.length) {
     return false;
   } else {
-    for (let i = 0; i < array1.length; i++) {
-      if (array1[i] !== array2[i]) {
+    for (let i = 0; i < index1.length; i++) {
+      if (index1[i] !== index2[i]) {
         return false;
       }
     }
+    return true;
   }
-  return true;
 };
-
 
 const eqObjects = function(object1, object2) {
   const array1 = Object.keys(object1);
@@ -38,9 +38,16 @@ const eqObjects = function(object1, object2) {
   return false;
 };
 
+// FUNCTION IMPLEMENTATION
+
 
 
 const assertObjectsEqual = function(actual, expected) {
-  
-};
+  const inspect = require('util').inspect;
 
+  if (!eqObjects(actual, expected))  {
+    console.log(`🛑🛑🛑 Assertion Failed: ${inspect(actual)} !== ${inspect(expected)}`);
+  } else {
+    console.log(`✅✅✅ Assertion Passed: ${inspect(actual)} === ${inspect(expected)}`);
+  }
+};

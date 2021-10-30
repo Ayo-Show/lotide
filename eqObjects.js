@@ -8,22 +8,21 @@ const assertEqual = function(actual, expected) {
 
 
 
-const eqArrays = function(array1, array2) {
-  if (array1.length !== array2.length) {
+// FUNCTION IMPLEMENTATION
+const eqArrays = (index1, index2) => {
+ 
+  if (index1.length !== index2.length) {
     return false;
   } else {
-    for (let i = 0; i < array1.length; i++) {
-      if (array1[i] !== array2[i]) {
+    for (let i = 0; i < index1.length; i++) {
+      if (index1[i] !== index2[i]) {
         return false;
       }
     }
+    return true;
   }
-  return true;
 };
-
-
-
-
+// TEST CODE
 
 
 const eqObjects = function(object1, object2) {
@@ -56,8 +55,9 @@ eqObjects(cd, dc); // => true
 const cd2 = { c: "1", d: ["2", 3, 4] };
 eqObjects(cd, cd2); // => false
 
+// TEST CODE
 
-
-
-
-
+assertEqual(eqObjects(ab, ba), true);
+assertEqual(eqObjects(ab, abc), false);
+assertEqual(eqObjects(cd, dc), true);
+assertEqual(eqObjects(cd, cd2), false);
